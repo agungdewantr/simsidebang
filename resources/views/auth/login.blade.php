@@ -1,10 +1,9 @@
-@extends('layouts.app')
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Login &mdash; Stisla</title>
+  <title>Login</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -83,7 +82,7 @@
               Don't have an account? <a href="auth-register.html">Create One</a>
             </div>
             <div class="simple-footer">
-              Copyright &copy; Stisla 2018
+               Copyright &copy; 2020 <div class="bullet"> PPL C - Kelompok E
             </div>
           </div>
         </div>

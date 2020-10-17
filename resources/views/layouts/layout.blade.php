@@ -254,13 +254,13 @@
                 <a href="/" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
               </li>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Layout</span></a>
+                <a href="/kelolaharga" class="nav-link"><i class="fas fa-columns"></i> <span>Kelola harga Barang</span></a>
               </li>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Bootstrap</span></a>
+                <a href="/produkmasuk" class="nav-link"><i class="fas fa-th"></i> <span>Kelola Produk Masuk</span></a>
               </li>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Components</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Kelola Produk Keluar</span></a>
               </li>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Forms</span></a>
@@ -303,29 +303,6 @@
                     <div class="card-body">
                       <div class="">
                         @yield('content')
-                      </div>
-                      <canvas id="myChart" height="182"></canvas>
-                      <div class="statistic-details mt-sm-4">
-                        <div class="statistic-details-item">
-                          <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 7%</span>
-                          <div class="detail-value">$243</div>
-                          <div class="detail-name">Today's Sales</div>
-                        </div>
-                        <div class="statistic-details-item">
-                          <span class="text-muted"><span class="text-danger"><i class="fas fa-caret-down"></i></span> 23%</span>
-                          <div class="detail-value">$2,902</div>
-                          <div class="detail-name">This Week's Sales</div>
-                        </div>
-                        <div class="statistic-details-item">
-                          <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span>9%</span>
-                          <div class="detail-value">$12,821</div>
-                          <div class="detail-name">This Month's Sales</div>
-                        </div>
-                        <div class="statistic-details-item">
-                          <span class="text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 19%</span>
-                          <div class="detail-value">$92,142</div>
-                          <div class="detail-name">This Year's Sales</div>
-                        </div>
                       </div>
                     </div>
                   </div>

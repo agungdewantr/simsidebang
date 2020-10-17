@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Providers;
-
+use App\harga;
 use Illuminate\Support\ServiceProvider;
-
+// parsing data buat semua view
+use Illuminate\Support\Facades\View;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+      $harga = new harga;
+        View::share($harga->harga);
     }
 }

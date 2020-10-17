@@ -13,9 +13,13 @@
 
 
 Auth::routes();
+Route::group(['middleware' => 'auth'], function(){
+	Route::get('/', 'HomeController@index')->name('dashboard');
+	Route::get('/logout','HomeController@logout')->name('logout');
+	Route::get('/profile','maincontroller@profile')->name('profile');
+	Route::get('/kelolaharga','hargaController@index')->name('harga');
+	Route::get('/kelolaharga/tambah','hargaController@create')->name('lihat');
+	Route::post('/kelolaharga','hargaController@store')->name('actiontambah');
+	Route::get('/produkmasuk','prodmasukController@create')->name('produkmasuk');
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/logout','HomeController@logout')->name('logout');
-
-
-  Route::get('/profile','maincontroller@profile')->name('profile');
+});
