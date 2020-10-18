@@ -15,8 +15,16 @@ class prodmasukController extends Controller
      */
     public function index()
     {
+      // $harga = \App\harga::pluck('jenis','harga');
+      // return view('CRUDprodukmasuk-tambah',compact('harga'));
       $harga = \App\harga::all();
       return view('CRUDprodukmasuk-tambah',compact('harga'));
+    }
+
+    public function buang()
+    {
+      $harga = \App\harga::where('idHarga','1')->get();
+      return view('CRUDprodukmasuk-tambah',['harga' => $harga]);
     }
 
     /**

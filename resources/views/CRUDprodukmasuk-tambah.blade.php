@@ -13,9 +13,11 @@
     <div class="form-group">
       <label for="jenis">Pilih Jenis Produk</label>
       <select class="form-control" id=jenis name="jenis">
-        @for ($i = 0; $i < count($array); $i++)
-        <option value="{{$array[$i]}}">{{$array[$i]}}</option>
-        @endfor
+
+        @foreach($harga as $hr)
+        <option value="{{$hr->jenis}}">{{$hr->jenis}}</option>
+        @endforeach
+
       </select>
     </div>
     <div class="form-group">
@@ -28,6 +30,12 @@
     </div>
     <div class="form-group">
       <label for="hargasatuan">Harga Satuan</label>
+      <?php $a = array($harga) ; ?>
+
+      @foreach($harga as $hr)
+        <li>{{$hr->jenis}}</li>
+        <li>{{$hr->harga}}</li>
+      @endforeach
       <input type="text" value="" class="form-control" id="hargasatuan" name="hargasatuan" placeholder="Masukkan Harga Satuan">
     </div>
     <div class="form-group">

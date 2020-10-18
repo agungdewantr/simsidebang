@@ -247,7 +247,7 @@
             <a href="/">SIM UD.SIDEBANG</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">SDBG</a>
+            <a href="/"><img alt="image" src="../assets/img/logo.png" width=40px></a>
           </div>
           <ul class="sidebar-menu">
               <li class="nav-item dropdown">

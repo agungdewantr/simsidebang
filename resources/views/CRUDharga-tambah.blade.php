@@ -20,7 +20,7 @@
     </div>
   <div class="form-group">
     <label for="harga">Harga</label>
-    <input type="number" class="form-control" id="harga" name="harga" placeholder="Masukkan harga">
+    <input type="number" class="form-control" id="harga" name="harga" value="" placeholder="Masukkan harga">
   </div>
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
