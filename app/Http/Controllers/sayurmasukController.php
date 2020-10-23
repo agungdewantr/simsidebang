@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\produkmasuk;
+use App\datasayurmasuk;
 use App\harga;
 use Illuminate\Http\Request;
 
-class prodmasukController extends Controller
+class sayurmasukController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,16 +15,14 @@ class prodmasukController extends Controller
      */
     public function index()
     {
-      // $harga = \App\harga::pluck('jenis','harga');
-      // return view('CRUDprodukmasuk-tambah',compact('harga'));
-      $harga = \App\harga::all();
-      return view('CRUDprodukmasuk-tambah',compact('harga'));
+
+      return view('CRUDprodukmasuk-tambah');
     }
 
-    public function buang()
+    public function getharga()
     {
-      $harga = \App\harga::where('idHarga','1')->get();
-      return view('CRUDprodukmasuk-tambah',['harga' => $harga]);
+      $harga = \App\hargabeli::all();
+      return response()->json($harga);
     }
 
     /**
@@ -34,8 +32,8 @@ class prodmasukController extends Controller
      */
     public function create()
     {
-      $harga = \App\harga::all();
-      return view('CRUDprodukmasuk-tambah',compact('harga'));
+
+      return view('CRUDprodukmasuk-tambah');
     }
 
     /**
@@ -46,16 +44,17 @@ class prodmasukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        datasayurmasuk::create($request->all());
+        return redirect('/produkmasuk');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\produkmasuk  $produkmasuk
+     * @param  \App\datasayurmasuk  $datasayurmasuk
      * @return \Illuminate\Http\Response
      */
-    public function show(produkmasuk $produkmasuk)
+    public function show(datasayurmasuk $datasayurmasuk)
     {
         //
     }
@@ -63,10 +62,10 @@ class prodmasukController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\produkmasuk  $produkmasuk
+     * @param  \App\datasayurmasuk  $datasayurmasuk
      * @return \Illuminate\Http\Response
      */
-    public function edit(produkmasuk $produkmasuk)
+    public function edit(datasayurmasuk $datasayurmasuk)
     {
         //
     }
@@ -75,10 +74,10 @@ class prodmasukController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\produkmasuk  $produkmasuk
+     * @param  \App\datasayurmasuk  $datasayurmasuk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, produkmasuk $produkmasuk)
+    public function update(Request $request, datasayurmasuk $datasayurmasuk)
     {
         //
     }
@@ -86,11 +85,13 @@ class prodmasukController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\produkmasuk  $produkmasuk
+     * @param  \App\datasayurmasuk  $datasayurmasuk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(produkmasuk $produkmasuk)
+    public function destroy(datasayurmasuk $datasayurmasuk)
     {
         //
     }
+
+
 }

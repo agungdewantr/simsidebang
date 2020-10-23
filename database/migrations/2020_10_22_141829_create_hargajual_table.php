@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHargaTable extends Migration
+class CreateHargajualTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateHargaTable extends Migration
      */
     public function up()
     {
-        Schema::create('harga', function (Blueprint $table) {
-            $table->bigIncrements('idHarga');
-            $table->enum('jenis',['Cabe','Jagung','Kol','Tomat']);
-            $table->bigInteger('harga');
-            $table->timestamps();
+        Schema::create('hargajual', function (Blueprint $table) {
+          $table->bigIncrements('idHargajual');
+          $table->enum('jenis',['Cabe','Jagung','Kol','Tomat']);
+          $table->bigInteger('harga');
+          $table->timestamps();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateHargaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('harga');
+        Schema::dropIfExists('hargajual');
     }
 }

@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>@yield('title')</title>
+  <link rel="icon" href="{!! asset('assets/img/logo.png')!!}">
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
   <!-- CSS Libraries -->
-  <link rel="stylesheet" href="../node_modules/jqvmap/dist/jqvmap.min.css">
-  <link rel="stylesheet" href="../node_modules/weathericons/css/weather-icons.min.css">
-  <link rel="stylesheet" href="../node_modules/weathericons/css/weather-icons-wind.min.css">
-  <link rel="stylesheet" href="../node_modules/summernote/dist/summernote-bs4.css">
-
+  <link rel="stylesheet" href="{!! asset('node_modules/jqvmap/dist/jqvmap.min.css')!!}">
+  <link rel="stylesheet" href="{!! asset('node_modules/weathericons/css/weather-icons.min.css')!!}">
+  <link rel="stylesheet" href="{!! asset('node_modules/weathericons/css/weather-icons-wind.min.css')!!}">
+  <link rel="stylesheet" href="{!! asset('node_modules/summernote/dist/summernote-bs4.css')!!}">
   <!-- Template CSS -->
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="{!! asset('assets/css/style.css') !!}">
+  <link rel="stylesheet" href="{!! asset('assets/css/components.css') !!}">
 </head>
 
 <body>
@@ -220,18 +220,11 @@
             </div>
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+            <img alt="image" src="{!! asset('assets/img/avatar/avatar-1.png') !!}" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block">{{auth()->user()->name}}</div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <div class="dropdown-title">Logged in 5 min ago</div>
               <a href="/profile" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
-              </a>
-              <a href="features-activities.html" class="dropdown-item has-icon">
-                <i class="fas fa-bolt"></i> Activities
-              </a>
-              <a href="features-settings.html" class="dropdown-item has-icon">
-                <i class="fas fa-cog"></i> Settings
               </a>
               <div class="dropdown-divider"></div>
               <a href="/logout" class="dropdown-item has-icon text-danger">
@@ -244,33 +237,82 @@
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="/">SIM UD.SIDEBANG</a>
+            <a href="/">SIM UD. Sidebang</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="/"><img alt="image" src="../assets/img/logo.png" width=40px></a>
+            <a href="/"><img src="{!! asset('assets/img/logo.png')!!}" alt="logo" width="40 px"></a>
           </div>
           <ul class="sidebar-menu">
+              <li class="menu-header">Dashboard</li>
               <li class="nav-item dropdown">
-                <a href="/" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link" href="/">Prediksi</a></li>
+                  <li><a class="nav-link" href="#">Ecommerce Dashboard</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown active">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kelola Harga Sayur</span></a>
+                <ul class="dropdown-menu">
+                  <li class="active"><a class="nav-link" href="/kelolahargabeli">Kelola Harga Beli Sayur</a></li>
+                  <li><a class="nav-link" href="/kelolahargajual">Kelola Harga Jual Sayur</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown active">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kelola Transaksi</span></a>
+                <ul class="dropdown-menu">
+                  <li class="active"><a class="nav-link" href="/produkmasuk">Kelola Transaksi Masuk</a></li>
+                  <li><a class="nav-link" href="layout-transparent.html">Kelola Transaksi Keluar</a></li>
+                  <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown active">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kelola Transaksi</span></a>
+                <ul class="dropdown-menu">
+                  <li class="active"><a class="nav-link" href="/produkmasuk">Kelola Transaksi Masuk</a></li>
+                  <li><a class="nav-link" href="layout-transparent.html">Kelola Transaksi Keluar</a></li>
+                  <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown active">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kelola Transaksi</span></a>
+                <ul class="dropdown-menu">
+                  <li class="active"><a class="nav-link" href="/produkmasuk">Kelola Transaksi Masuk</a></li>
+                  <li><a class="nav-link" href="layout-transparent.html">Kelola Transaksi Keluar</a></li>
+                  <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
+                </ul>
               </li>
               <li class="nav-item dropdown">
-                <a href="/kelolaharga" class="nav-link"><i class="fas fa-columns"></i> <span>Kelola harga Barang</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-exclamation"></i> <span>Errors</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link" href="errors-503.html">503</a></li>
+                  <li><a class="nav-link" href="errors-403.html">403</a></li>
+                  <li><a class="nav-link" href="errors-404.html">404</a></li>
+                  <li><a class="nav-link" href="errors-500.html">500</a></li>
+                </ul>
               </li>
               <li class="nav-item dropdown">
-                <a href="/produkmasuk" class="nav-link"><i class="fas fa-th"></i> <span>Kelola Produk Masuk</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-bicycle"></i> <span>Features</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link" href="features-activities.html">Activities</a></li>
+                  <li><a class="nav-link" href="features-post-create.html">Post Create</a></li>
+                  <li><a class="nav-link" href="features-posts.html">Posts</a></li>
+                  <li><a class="nav-link" href="features-profile.html">Profile</a></li>
+                  <li><a class="nav-link" href="features-settings.html">Settings</a></li>
+                  <li><a class="nav-link" href="features-setting-detail.html">Setting Detail</a></li>
+                  <li><a class="nav-link" href="features-tickets.html">Tickets</a></li>
+                </ul>
               </li>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Kelola Produk Keluar</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-ellipsis-h"></i> <span>Utilities</span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="utilities-contact.html">Contact</a></li>
+                  <li><a class="nav-link" href="utilities-invoice.html">Invoice</a></li>
+                  <li><a href="utilities-subscribe.html">Subscribe</a></li>
+                </ul>
               </li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Forms</span></a>
-              </li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-map-marker-alt"></i> <span>Google Maps</span></a>
-              </li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-plug"></i> <span>Modules</span></a>
-              </li>
+              <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i> <span>Credits</span></a></li>
+            </ul>
 
             <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
               <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
@@ -287,25 +329,19 @@
             <h1>@yield('namahalaman')</h1>
             <div class="section-header-breadcrumb">
               <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-              <div class="breadcrumb-item"><a href="#">Google Maps</a></div>
-              <div class="breadcrumb-item">Advanced Route</div>
+              <div class="breadcrumb-item"><a href="#">Layout</a></div>
+              <div class="breadcrumb-item">Default Layout</div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-lg-12 col-md-12 col-12 col-sm-12">
-              <div class="card">
-                <div class="card-header">
-                  <h4>@yield('namahalaman')</h4>
-                  <div class="card-header-action">
 
-                  </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="">
-                        @yield('content')
-                      </div>
-                    </div>
-                  </div>
+          <div class="section-body">
+            <div class="card">
+              <div class="card-header">
+                <h4>@yield('namahalaman')</h4>
+              </div>
+              <div class="card-body">
+                <div class="">
+                  @yield('content')
                 </div>
               </div>
             </div>
@@ -313,7 +349,7 @@
         </section>
       </div>
       <footer class="main-footer">
-        <div class="footer-right">
+        <div class="footer-left">
           Copyright &copy; 2020 <div class="bullet"> PPL C - Kelompok E
         </div>
       </footer>
@@ -326,21 +362,65 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="../assets/js/stisla.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+  <link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"/>
+  <script src="{!! asset('assets/js/stisla.js')!!}"></script>
 
   <!-- JS Libraies -->
-  <script src="../node_modules/simpleweather/jquery.simpleWeather.min.js"></script>
-  <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
-  <script src="../node_modules/jqvmap/dist/jquery.vmap.min.js"></script>
-  <script src="../node_modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-  <script src="../node_modules/summernote/dist/summernote-bs4.js"></script>
-  <script src="../node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+  <script src="{!! asset('node_modules/simpleweather/jquery.simpleWeather.min.js')!!}"></script>
+  <script src="{!! asset('node_modules/chart.js/dist/Chart.min.js')!!}"></script>
+  <script src="{!! asset('node_modules/jqvmap/dist/jquery.vmap.min.js')!!}"></script>
+  <script src="{!! asset('node_modules/jqvmap/dist/maps/jquery.vmap.world.js')!!}"></script>
+  <script src="{!! asset('node_modules/summernote/dist/summernote-bs4.js')!!}"></script>
+  <script src="{!! asset('node_modules/chocolat/dist/js/jquery.chocolat.min.js')!!}"></script>
 
   <!-- Template JS File -->
-  <script src="../assets/js/scripts.js"></script>
-  <script src="../assets/js/custom.js"></script>
-
+  <script src="{!! asset('assets/js/scripts.js')!!}"></script>
+  <script src="{!! asset('assets/js/custom.js')!!}"></script>
   <!-- Page Specific JS File -->
-  <script src="../assets/js/page/index-0.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $.ajax({
+        type:'get',
+        url:'{!!URL::to('cariharga')!!}',
+        success:function(response){
+          console.log(response);
+          //material css
+          //convert array to object
+          var hargaArray = response;
+          var dataharga = {};
+          var dataharga2 = {};
+          for (var i = 0; i < hargaArray.length; i++) {
+            dataharga[hargaArray[i].jenis] =null;
+            dataharga2[hargaArray[i].jenis] =hargaArray[i];
+          }
+
+          console.log("dataharga2");
+          console.log(dataharga2);
+
+          $('input#jenis').autocomplete({
+            data: dataharga,
+            onAutocomplete:function(reqdata){
+              console.log(reqdata);
+              $('#harga').val(dataharga2[reqdata]['harga']);
+            }
+          });
+          //end
+        }
+      })
+    });
+    $(document).ready(function() {
+        $("#jumlah, #harga").keyup(function() {
+            var harga  = $("#harga").val();
+            var jumlah = $("#jumlah").val();
+
+            var totalharga = parseInt(harga) * parseInt(jumlah);
+            $("#totalHarga").val(totalharga);
+        });
+    });
+  </script>
 </body>
 </html>

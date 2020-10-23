@@ -17,9 +17,20 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/', 'HomeController@index')->name('dashboard');
 	Route::get('/logout','HomeController@logout')->name('logout');
 	Route::get('/profile','maincontroller@profile')->name('profile');
-	Route::get('/kelolaharga','hargaController@index')->name('harga');
-	Route::get('/kelolaharga/tambah','hargaController@create')->name('lihat');
-	Route::post('/kelolaharga','hargaController@store')->name('actiontambah');
-	Route::get('/produkmasuk','prodmasukController@index')->name('produkmasuk');
-
+	Route::patch('/profile', 'userController@update')->name('actionupdateprofile');
+	Route::get('/kelolahargabeli','hargabeliController@index')->name('hargabeli');
+	Route::get('/kelolahargabeli/tambah','hargabeliController@create')->name('formtambahhargabeli');
+	Route::get('/kelolahargabeli/{hargabeli}/edit','hargabeliController@edit')->name('formedithargabeli');
+	Route::patch('/kelolahargabeli/{hargabeli}', 'hargabeliController@update')->name('actionupdatehargabeli');
+	Route::delete('/kelolahargabeli/{hargabeli}','hargabeliController@destroy')->name('hapushargabeli');
+	Route::post('/kelolahargabeli','hargabeliController@store')->name('actiontambahhargabeli');
+	Route::get('/produkmasuk','sayurmasukController@index')->name('produkmasuk');
+	Route::get('/cariharga','sayurmasukController@getharga');
+	Route::post('/produkmasuk','sayurmasukController@store')->name('produkmasuk');
+	Route::get('/kelolahargajual','hargajualController@index')->name('hargajual');
+	Route::get('/kelolahargajual/tambah','hargajualController@create')->name('formtambahhargajual');
+	Route::get('/kelolahargajual/{hargajual}/edit','hargajualController@edit')->name('formedithargajual');
+	Route::patch('/kelolahargajual/{hargajual}', 'hargajualController@update')->name('actionupdatehargajual');
+	Route::delete('/kelolahargajual/{hargajual}','hargajualController@destroy')->name('hapushargajual');
+	Route::post('/kelolahargajual','hargajualController@store')->name('actiontambahhargajual');
 });

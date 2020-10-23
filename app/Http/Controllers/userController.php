@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\harga;
+use app\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
-class hargaController extends Controller
+class userController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class hargaController extends Controller
      */
     public function index()
     {
-        $harga = \App\harga::all();
-        return view('CRUDharga', compact('harga'));
+        //
     }
 
     /**
@@ -25,8 +24,7 @@ class hargaController extends Controller
      */
     public function create()
     {
-      $harga = \App\harga::all();
-      return view('CRUDharga-tambah', compact('harga'));
+        //
     }
 
     /**
@@ -37,17 +35,16 @@ class hargaController extends Controller
      */
     public function store(Request $request)
     {
-        harga::create($request->all());
-        return redirect('/kelolaharga');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\harga  $harga
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(harga $harga)
+    public function show($id)
     {
         //
     }
@@ -55,10 +52,10 @@ class hargaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\harga  $harga
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(harga $harga)
+    public function edit($id)
     {
         //
     }
@@ -67,21 +64,33 @@ class hargaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\harga  $harga
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, harga $harga)
+    public function update(Request $request, user $user)
     {
-        //
+      $request->validate([
+        'nama' => 'required',
+        'email' => 'required',
+        'password' => 'required'
+      ]);
+
+      User::where('id', $request->id )
+            ->update([
+              'name' => $request->nama,
+              'email' => $request->email,
+              'password' => Hash::make($request->password)
+            ]);
+      return redirect('/profile')->with('status','Data profil anda Berhasil Diupdate');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\harga  $harga
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(harga $harga)
+    public function destroy($id)
     {
         //
     }

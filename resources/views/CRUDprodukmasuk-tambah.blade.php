@@ -1,46 +1,41 @@
 @extends('layouts.layout')
 
-@section('title','Tambah Produk Masuk')
+@section('title','Tambah Data Sayur Masuk')
 
 @section('namahalaman')
-  <h4>Produk Masuk</h4>
+  <h4>Data Sayur Masuk</h4>
 @endsection
 
 @section('content')
-<form method="post" action="/kelolaharga">
+<form method="post" action="produkmasuk">
   @csrf
-  <?php $array = array('Cabe','Jagung','Kol','Tomat');  ?>
     <div class="form-group">
-      <label for="jenis">Pilih Jenis Produk</label>
-      <select class="form-control" id=jenis name="jenis">
-
-        @foreach($harga as $hr)
-        <option value="{{$hr->jenis}}">{{$hr->jenis}}</option>
-        @endforeach
-
-      </select>
+    <div class="row">
+      <div class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="jenis">Jenis sayur</label>
+            <input type="text" id="jenis" class="form-control" placeholder="Masukkan Jenis">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="form-group">
+      <label for="namaPenjual">Nama Penjual</label>
+      <input type="text" class="form-control" id="namaPenjual" name="namaPenjual" placeholder="Masukkan Nama Penjual">
     </div>
     <div class="form-group">
-      <label for="namapenjual">Nama Penjual</label>
-      <input type="text" class="form-control" id="namapenjual" name="namapenjual" placeholder="Masukkan Nama Penjual">
+      <label for="harga">Harga Satuan</label>
+      <input type="text" value="" class="form-control" id="harga" name="harga" placeholder="Masukkan Harga Satuan"  readonly="">
     </div>
     <div class="form-group">
       <label for="jumlah">Jumlah</label>
       <input type="text" class="form-control" id="jumlah" name="jumlah" placeholder="Masukkan Jumlah">
     </div>
     <div class="form-group">
-      <label for="hargasatuan">Harga Satuan</label>
-      <?php $a = array($harga) ; ?>
-
-      @foreach($harga as $hr)
-        <li>{{$hr->jenis}}</li>
-        <li>{{$hr->harga}}</li>
-      @endforeach
-      <input type="text" value="" class="form-control" id="hargasatuan" name="hargasatuan" placeholder="Masukkan Harga Satuan">
-    </div>
-    <div class="form-group">
-      <label for="totalharga">Total Harga</label>
-      <input type="text" value="" class="form-control" id="totalharga" name="totalharga" placeholder="Masukkan harga">
+      <label for="totalHarga">Total Harga</label>
+      <input type="text" value="" class="form-control" id="totalHarga" name="totalHarga" placeholder="Masukkan harga" readonly="">
     </div>
     <button type="submit" class="btn btn-success">Submit</button>
   </form>

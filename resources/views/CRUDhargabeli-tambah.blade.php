@@ -1,13 +1,13 @@
 @extends('layouts.layout')
 
-@section('title','Tambah Harga')
+@section('title','Tambah Harga Beli')
 
 @section('namahalaman')
-  <h4>Kelola Harga</h4>
+  <h4>Kelola Harga Beli</h4>
 @endsection
 
 @section('content')
-<form method="post" action="/kelolaharga">
+<form method="post" action="/kelolahargabeli">
   @csrf
   <?php $array = array('Cabe','Jagung','Kol','Tomat');  ?>
     <div class="form-group">
@@ -20,11 +20,10 @@
     </div>
   <div class="form-group">
     <label for="harga">Harga</label>
-    <input type="number" class="form-control" id="harga" name="harga" value="" placeholder="Masukkan harga">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    <input type="number" class="form-control @error('harga') is-invalid @enderror" id="harga" name="harga" value="" placeholder="Masukkan harga">
+    @error('harga')
+      <div class="invalid-feedback">{{$message}}</div>
+    @enderror
   </div>
   <button type="submit" class="btn btn-success">Submit</button>
 </form>
