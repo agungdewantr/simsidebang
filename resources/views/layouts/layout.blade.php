@@ -252,7 +252,7 @@
                 </ul>
               </li>
               <li class="nav-item dropdown active">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kelola Harga Sayur</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Sayuran</span></a>
                 <ul class="dropdown-menu">
                   <li class="active"><a class="nav-link" href="/kelolahargabeli">Kelola Harga Beli Sayur</a></li>
                   <li><a class="nav-link" href="/kelolahargajual">Kelola Harga Jual Sayur</a></li>
