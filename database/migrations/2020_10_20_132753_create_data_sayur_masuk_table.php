@@ -17,7 +17,7 @@ class CreateDataSayurMasukTable extends Migration
             $table->bigIncrements('idSayurMasuk');
             $table->enum('jenis',['Cabe','Jagung','Kol','Tomat']);
             $table->string('namaPenjual');
-            $table->bigInteger('harga');
+            $table->bigInteger('hargabeli');
             $table->bigInteger('jumlah');
             $table->bigInteger('totalHarga');
             $table->timestamps();

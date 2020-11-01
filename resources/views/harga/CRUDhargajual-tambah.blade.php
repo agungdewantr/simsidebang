@@ -1,13 +1,13 @@
 @extends('layouts.layout')
 
-@section('title','Tambah Harga Beli')
+@section('title','Tambah Harga Jual')
 
 @section('namahalaman')
-  <h4>Kelola Harga Beli</h4>
+  <h4>Kelola Harga Jual</h4>
 @endsection
 
 @section('content')
-<form method="post" action="/kelolahargabeli">
+<form method="post" action="/kelolahargajual">
   @csrf
   <?php $array = array('Cabe','Jagung','Kol','Tomat');  ?>
     <div class="form-group">
@@ -25,6 +25,6 @@
       <div class="invalid-feedback">{{$message}}</div>
     @enderror
   </div>
-  <button type="submit" class="btn btn-success">Submit</button>
+  <button type="submit" class="btn btn-success">Simpan</button>
 </form>
 @endsection

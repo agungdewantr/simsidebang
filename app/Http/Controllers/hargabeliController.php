@@ -15,7 +15,7 @@ class hargabeliController extends Controller
     public function index()
     {
         $hargabeli = \App\hargabeli::all();
-        return view('CRUDhargabeli-read', compact('hargabeli'));
+        return view('harga.CRUDhargabeli-read', compact('hargabeli'));
     }
 
     /**
@@ -26,7 +26,7 @@ class hargabeliController extends Controller
     public function create()
     {
       $hargabeli = \App\hargabeli::all();
-      return view('CRUDhargabeli-tambah', compact('hargabeli'));
+      return view('harga.CRUDhargabeli-tambah', compact('hargabeli'));
     }
 
     /**
@@ -42,7 +42,7 @@ class hargabeliController extends Controller
           'harga' => 'required'
         ]);
         hargabeli::create($request->all());
-        return redirect('/kelolaharga')->with('status','Data Harga Sayur Berhasil Ditambah');
+        return redirect('/kelolahargabeli')->with('status','Data Harga Sayur Berhasil Ditambah');
     }
 
     /**
@@ -64,7 +64,7 @@ class hargabeliController extends Controller
      */
     public function edit(hargabeli $hargabeli)
     {
-        return view('CRUDhargabeli-edit', compact('hargabeli'));
+        return view('harga.CRUDhargabeli-edit', compact('hargabeli'));
     }
 
     /**

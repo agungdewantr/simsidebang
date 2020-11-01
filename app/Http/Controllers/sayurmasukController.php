@@ -15,8 +15,8 @@ class sayurmasukController extends Controller
      */
     public function index()
     {
-
-      return view('CRUDprodukmasuk-tambah');
+      $sayurmasuk = \App\datasayurmasuk::all();
+      return view('transaksi.CRUDsayurmasuk-read', compact('sayurmasuk'));
     }
 
     public function getharga()
@@ -33,7 +33,7 @@ class sayurmasukController extends Controller
     public function create()
     {
 
-      return view('CRUDprodukmasuk-tambah');
+      return view('transaksi.CRUDsayurmasuk-tambah');
     }
 
     /**
@@ -45,7 +45,7 @@ class sayurmasukController extends Controller
     public function store(Request $request)
     {
         datasayurmasuk::create($request->all());
-        return redirect('/produkmasuk');
+        return redirect('/sayurmasuk')->with('status','Data Harga Sayur Berhasil Ditambah');
     }
 
     /**
@@ -56,7 +56,7 @@ class sayurmasukController extends Controller
      */
     public function show(datasayurmasuk $datasayurmasuk)
     {
-        //
+      return view('transaksi.detailtransaksimasuk',compact('datasayurmasuk'));
     }
 
     /**
@@ -67,7 +67,7 @@ class sayurmasukController extends Controller
      */
     public function edit(datasayurmasuk $datasayurmasuk)
     {
-        //
+        return view('transaksi.CRUDsayurmasuk-edit', compact('datasayurmasuk'));
     }
 
     /**
@@ -79,7 +79,18 @@ class sayurmasukController extends Controller
      */
     public function update(Request $request, datasayurmasuk $datasayurmasuk)
     {
-        //
+        $request->validate([
+          'namaPenjual'=> 'required',
+          'jumlah' => 'required'
+        ]);
+
+        datasayurmasuk::where('idSayurMasuk', $datasayurmasuk->idSayurMasuk)
+          -> update([
+            'namaPenjual' => $request->namaPenjual,
+            'jumlah' => $request->jumlah,
+            'totalHarga' => $request->totalHarga
+          ]);
+          return redirect('/sayurmasuk')->with('status','Data Transaksi Sayur Masuk Berhasil Diupdate');
     }
 
     /**
@@ -90,7 +101,8 @@ class sayurmasukController extends Controller
      */
     public function destroy(datasayurmasuk $datasayurmasuk)
     {
-        //
+        datasayurmasuk::destroy($datasayurmasuk->idSayurMasuk);
+        return redirect('/sayurmasuk')->with('status','Data Transaksi Sayur Masuk Berhasil Dihapus');
     }
 
 

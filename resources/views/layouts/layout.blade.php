@@ -243,35 +243,33 @@
             <a href="/"><img src="{!! asset('assets/img/logo.png')!!}" alt="logo" width="40 px"></a>
           </div>
           <ul class="sidebar-menu">
-              <li class="menu-header">Dashboard</li>
+              <li class="menu-header">Menu</li>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="/">Prediksi</a></li>
+                  <li><a class="nav-link" href="{{url('/')}}">Prediksi</a></li>
                   <li><a class="nav-link" href="#">Ecommerce Dashboard</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown active">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Sayuran</span></a>
                 <ul class="dropdown-menu">
-                  <li class="active"><a class="nav-link" href="/kelolahargabeli">Kelola Harga Beli Sayur</a></li>
-                  <li><a class="nav-link" href="/kelolahargajual">Kelola Harga Jual Sayur</a></li>
+                  <li class=""><a class="nav-link" href="{{ url('/kelolahargabeli') }}">Kelola Harga Beli Sayur</a></li>
+                  <li><a class="nav-link" href="{{ url('/kelolahargajual') }}">Kelola Harga Jual Sayur</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown active">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kelola Transaksi</span></a>
                 <ul class="dropdown-menu">
-                  <li class="active"><a class="nav-link" href="/produkmasuk">Kelola Transaksi Masuk</a></li>
-                  <li><a class="nav-link" href="layout-transparent.html">Kelola Transaksi Keluar</a></li>
-                  <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
+                  <li class=""><a class="nav-link" href="{{ url('/sayurmasuk') }}">Kelola Transaksi Masuk</a></li>
+                  <li><a class="nav-link" href="{{ url('/sayurkeluar') }}">Kelola Transaksi Keluar</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown active">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kelola Transaksi</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kelola Keuangan</span></a>
                 <ul class="dropdown-menu">
-                  <li class="active"><a class="nav-link" href="/produkmasuk">Kelola Transaksi Masuk</a></li>
+                  <li class=""><a class="nav-link" href="/produkmasuk">Kelola Transaksi Masuk</a></li>
                   <li><a class="nav-link" href="layout-transparent.html">Kelola Transaksi Keluar</a></li>
-                  <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown active">
@@ -291,34 +289,12 @@
                   <li><a class="nav-link" href="errors-500.html">500</a></li>
                 </ul>
               </li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-bicycle"></i> <span>Features</span></a>
-                <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="features-activities.html">Activities</a></li>
-                  <li><a class="nav-link" href="features-post-create.html">Post Create</a></li>
-                  <li><a class="nav-link" href="features-posts.html">Posts</a></li>
-                  <li><a class="nav-link" href="features-profile.html">Profile</a></li>
-                  <li><a class="nav-link" href="features-settings.html">Settings</a></li>
-                  <li><a class="nav-link" href="features-setting-detail.html">Setting Detail</a></li>
-                  <li><a class="nav-link" href="features-tickets.html">Tickets</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-ellipsis-h"></i> <span>Utilities</span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="utilities-contact.html">Contact</a></li>
-                  <li><a class="nav-link" href="utilities-invoice.html">Invoice</a></li>
-                  <li><a href="utilities-subscribe.html">Subscribe</a></li>
-                </ul>
-              </li>
-              <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i> <span>Credits</span></a></li>
-            </ul>
-
             <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
               <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
                 <i class="fas fa-rocket"></i> Documentation
               </a>
             </div>
+            </ul>
         </aside>
       </div>
 
@@ -377,6 +353,7 @@
   <!-- Template JS File -->
   <script src="{!! asset('assets/js/scripts.js')!!}"></script>
   <script src="{!! asset('assets/js/custom.js')!!}"></script>
+  <script src="{!! asset('assets/js/page/bootstrap-modal.js') !!}"></script>
   <!-- Page Specific JS File -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -405,7 +382,7 @@
             data: dataharga,
             onAutocomplete:function(reqdata){
               console.log(reqdata);
-              $('#harga').val(dataharga2[reqdata]['harga']);
+              $('#hargabeli').val(dataharga2[reqdata]['harga']);
             }
           });
           //end
@@ -413,8 +390,8 @@
       })
     });
     $(document).ready(function() {
-        $("#jumlah, #harga").keyup(function() {
-            var harga  = $("#harga").val();
+        $("#jumlah, #hargabeli").keyup(function() {
+            var harga  = $("#hargabeli").val();
             var jumlah = $("#jumlah").val();
 
             var totalharga = parseInt(harga) * parseInt(jumlah);

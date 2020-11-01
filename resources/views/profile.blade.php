@@ -82,6 +82,13 @@
                     <div class="invalid-feedback">{{$message}}</div>
                   @enderror
                 </div>
+                <div class="form-group col-md-6 col-12">
+                  <label for="konfirmasi">{{ __(' Konfirmasi Password') }}</label>
+                  <input type="password" id="konfirmasi" name="konfirmasi" class="form-control @error('konfirmasi') is-invalid @enderror" value="">
+                  @error('konfirmasi')
+                    <div class="invalid-feedback">{{$message}}</div>
+                  @enderror
+                </div>
               </div>
           </div>
           <div class="card-footer text-center">

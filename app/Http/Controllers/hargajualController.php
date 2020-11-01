@@ -15,7 +15,7 @@ class hargajualController extends Controller
     public function index()
     {
       $hargajual = \App\hargajual::all();
-      return view('CRUDhargajual-read', compact('hargajual'));
+      return view('harga.CRUDhargajual-read', compact('hargajual'));
     }
 
     /**
@@ -26,7 +26,7 @@ class hargajualController extends Controller
     public function create()
     {
       $hargajual = \App\hargajual::all();
-      return view('CRUDhargajual-tambah', compact('hargajual'));
+      return view('harga.CRUDhargajual-tambah', compact('hargajual'));
     }
 
     /**
@@ -64,7 +64,7 @@ class hargajualController extends Controller
      */
     public function edit(hargajual $hargajual)
     {
-        return view('CRUDhargajual-edit', compact('hargajual'));
+        return view('harga.CRUDhargajual-edit', compact('hargajual'));
     }
 
     /**

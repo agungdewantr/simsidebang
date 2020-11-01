@@ -24,6 +24,6 @@
     <div class="invalid-feedback">{{$message}}</div>
     @enderror
   </div>
-  <button type="submit" class="btn btn-success">Submit</button>
+  <button type="submit" class="btn btn-success">Simpan</button>
 </form>
 @endsection

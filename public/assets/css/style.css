@@ -1319,11 +1319,11 @@ h6 .badge {
   background-color: #3AA243;
   border-color: #3AA243; }
   .btn-primary:focus, .btn-primary.disabled:focus {
-    background-color: #394eea !important; }
+    background-color: #3aa243 !important; }
     .btn-primary:focus:active, .btn-primary.disabled:focus:active {
-      background-color: #394eea !important; }
+      background-color: #3aa243 !important; }
   .btn-primary:active, .btn-primary:hover, .btn-primary.disabled:active, .btn-primary.disabled:hover {
-    background-color: #394eea !important; }
+    background-color: #3aa243 !important; }
 
 .btn-outline-primary, .btn-outline-primary.disabled {
   border-color: #3AA243;

@@ -72,7 +72,7 @@ class userController extends Controller
       $request->validate([
         'nama' => 'required',
         'email' => 'required',
-        'password' => 'required'
+        'password' => 'required_with: password|same:konfirmasi'
       ]);
 
       User::where('id', $request->id )
