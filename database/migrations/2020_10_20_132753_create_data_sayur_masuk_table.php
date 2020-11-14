@@ -15,7 +15,6 @@ class CreateDataSayurMasukTable extends Migration
     {
         Schema::create('data_sayur_masuk', function (Blueprint $table) {
             $table->bigIncrements('idSayurMasuk');
-            $table->enum('jenis',['Cabe','Jagung','Kol','Tomat']);
             $table->string('namaPenjual');
             $table->bigInteger('hargabeli');
             $table->bigInteger('jumlah');

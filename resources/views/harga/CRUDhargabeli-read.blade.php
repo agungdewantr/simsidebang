@@ -15,8 +15,11 @@
 @endif
 <div class="form-group">
   @if (session('status'))
-    <div class="alert alert-light" role="alert">
-        {{ session('status') }}
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+      <strong>{{ session('status') }}</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
   @endif
 </div>
@@ -37,7 +40,7 @@
     @foreach($hargabeli as $hrg)
     <td scope="row" align="center">{{ $loop->iteration }}</th>
     <td align="center">{{ $hrg->jenis }}</td>
-    <td align="center">{{ $hrg->harga }}</td>
+    <td align="center">@currency($hrg->harga)</td>
     @if(auth()->user()->role == 'pegawai')
     <td scope="row row-center" align="center">
       <div class="button">

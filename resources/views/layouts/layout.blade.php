@@ -38,18 +38,6 @@
               <div class="search-header">
                 Histories
               </div>
-              <div class="search-item">
-                <a href="#">How to hack NASA using CSS</a>
-                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
-              </div>
-              <div class="search-item">
-                <a href="#">Kodinger.com</a>
-                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
-              </div>
-              <div class="search-item">
-                <a href="#">#Stisla</a>
-                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
-              </div>
               <div class="search-header">
                 Result
               </div>
@@ -251,6 +239,7 @@
                   <li><a class="nav-link" href="#">Ecommerce Dashboard</a></li>
                 </ul>
               </li>
+              @if(auth()->user()->role == 'pegawai')
               <li class="nav-item dropdown active">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Sayuran</span></a>
                 <ul class="dropdown-menu">
@@ -272,23 +261,16 @@
                   <li><a class="nav-link" href="layout-transparent.html">Kelola Transaksi Keluar</a></li>
                 </ul>
               </li>
+              @endif
+              @if(auth()->user()->role == 'pemilik')
               <li class="nav-item dropdown active">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kelola Transaksi</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Rekap Transaksi</span></a>
                 <ul class="dropdown-menu">
-                  <li class="active"><a class="nav-link" href="/produkmasuk">Kelola Transaksi Masuk</a></li>
-                  <li><a class="nav-link" href="layout-transparent.html">Kelola Transaksi Keluar</a></li>
-                  <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
+                  <li class=""><a class="nav-link" href="{{ url('/sayurmasuk') }}">Rekap Transaksi Masuk</a></li>
+                  <li><a class="nav-link" href="{{ url('/sayurkeluar') }}">Rekap Transaksi Keluar</a></li>
                 </ul>
               </li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-exclamation"></i> <span>Errors</span></a>
-                <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="errors-503.html">503</a></li>
-                  <li><a class="nav-link" href="errors-403.html">403</a></li>
-                  <li><a class="nav-link" href="errors-404.html">404</a></li>
-                  <li><a class="nav-link" href="errors-500.html">500</a></li>
-                </ul>
-              </li>
+              @endif
             <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
               <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
                 <i class="fas fa-rocket"></i> Documentation
@@ -313,7 +295,7 @@
           <div class="section-body">
             <div class="card">
               <div class="card-header">
-                <h4>@yield('namahalaman')</h4>
+                <h4>@yield('title')</h4>
               </div>
               <div class="card-body">
                 <div class="">
@@ -358,46 +340,6 @@
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $.ajax({
-        type:'get',
-        url:'{!!URL::to('cariharga')!!}',
-        success:function(response){
-          console.log(response);
-          //material css
-          //convert array to object
-          var hargaArray = response;
-          var dataharga = {};
-          var dataharga2 = {};
-          for (var i = 0; i < hargaArray.length; i++) {
-            dataharga[hargaArray[i].jenis] =null;
-            dataharga2[hargaArray[i].jenis] =hargaArray[i];
-          }
-
-          console.log("dataharga2");
-          console.log(dataharga2);
-
-          $('input#jenis').autocomplete({
-            data: dataharga,
-            onAutocomplete:function(reqdata){
-              console.log(reqdata);
-              $('#hargabeli').val(dataharga2[reqdata]['harga']);
-            }
-          });
-          //end
-        }
-      })
-    });
-    $(document).ready(function() {
-        $("#jumlah, #hargabeli").keyup(function() {
-            var harga  = $("#hargabeli").val();
-            var jumlah = $("#jumlah").val();
-
-            var totalharga = parseInt(harga) * parseInt(jumlah);
-            $("#totalHarga").val(totalharga);
-        });
-    });
-  </script>
+@yield('autocomplete')
 </body>
 </html>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\datasayurmasuk;
 use App\harga;
+use DB;
 use Illuminate\Http\Request;
 
 class sayurmasukController extends Controller
@@ -15,7 +16,11 @@ class sayurmasukController extends Controller
      */
     public function index()
     {
-      $sayurmasuk = \App\datasayurmasuk::all();
+      $sayurmasuk = DB::table('data_sayur_masuk')
+            ->join('hargabeli', 'hargabeli.idHargabeli', '=', 'data_sayur_masuk.idHargabeli')
+            ->select('hargabeli.jenis','data_sayur_masuk.namaPenjual','data_sayur_masuk.jumlah',
+            'data_sayur_masuk.totalHarga','data_sayur_masuk.idSayurMasuk')
+            ->get();
       return view('transaksi.CRUDsayurmasuk-read', compact('sayurmasuk'));
     }
 
@@ -44,8 +49,13 @@ class sayurmasukController extends Controller
      */
     public function store(Request $request)
     {
+      $request->validate([
+        'jenis' => 'required',
+        'namaPenjual' => 'required',
+        'jumlah' => 'required'
+      ]);
         datasayurmasuk::create($request->all());
-        return redirect('/sayurmasuk')->with('status','Data Harga Sayur Berhasil Ditambah');
+        return redirect('/sayurmasuk')->with('status','Data Transaksi Sayur Masuk Berhasil Ditambah');
     }
 
     /**
@@ -56,7 +66,13 @@ class sayurmasukController extends Controller
      */
     public function show(datasayurmasuk $datasayurmasuk)
     {
-      return view('transaksi.detailtransaksimasuk',compact('datasayurmasuk'));
+      $id = $datasayurmasuk->idSayurMasuk;
+      $sayurmasuk = DB::table('data_sayur_masuk')
+            ->join('hargabeli', 'hargabeli.idHargabeli', '=', 'data_sayur_masuk.idHargabeli')
+            ->select('hargabeli.jenis','data_sayur_masuk.namaPenjual','data_sayur_masuk.jumlah','data_sayur_masuk.hargabeli','data_sayur_masuk.totalHarga','data_sayur_masuk.idSayurMasuk','data_sayur_masuk.created_at')
+            ->where('data_sayur_masuk.idSayurMasuk', '=', "$id")
+            ->get();
+      return view('transaksi.detailtransaksimasuk',compact('sayurmasuk'));
     }
 
     /**
@@ -67,7 +83,14 @@ class sayurmasukController extends Controller
      */
     public function edit(datasayurmasuk $datasayurmasuk)
     {
-        return view('transaksi.CRUDsayurmasuk-edit', compact('datasayurmasuk'));
+      $id = $datasayurmasuk->idSayurMasuk;
+      $sayurmasuk = DB::table('data_sayur_masuk')
+            ->join('hargabeli', 'hargabeli.idHargabeli', '=', 'data_sayur_masuk.idHargabeli')
+            ->select('hargabeli.jenis','data_sayur_masuk.namaPenjual','data_sayur_masuk.jumlah','data_sayur_masuk.hargabeli','data_sayur_masuk.totalHarga','data_sayur_masuk.idSayurMasuk','data_sayur_masuk.created_at')
+            ->where('data_sayur_masuk.idSayurMasuk', '=', "$id")
+            ->get();
+      return view('transaksi.CRUDsayurmasuk-edit',compact('sayurmasuk'));
+        // return view('transaksi.CRUDsayurmasuk-edit', compact('datasayurmasuk'));
     }
 
     /**

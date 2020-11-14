@@ -7,7 +7,8 @@
 @endsection
 
 @section('content')
-<form method="post" action="/kelolahargabeli/{{$hargabeli->idHargabeli}}">
+<!-- <form method="post" action="/kelolahargabeli/{{$hargabeli->idHargabeli}}"> -->
+  <form method="post" action="{{url('kelolahargabeli/'.$hargabeli->idHargabeli)}}">
   @method('patch')
   @csrf
   <div class="form-group">

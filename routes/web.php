@@ -26,7 +26,8 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::delete('/kelolahargabeli/{hargabeli}','hargabeliController@destroy')->name('hapushargabeli');
 	Route::post('/kelolahargabeli','hargabeliController@store')->name('actiontambahhargabeli');
 	// Route::get('/produkmasuk','sayurmasukController@index')->name('produkmasuk');
-	Route::get('/cariharga','sayurmasukController@getharga');
+	Route::get('/carihargabeli','sayurmasukController@getharga');
+	Route::get('/carihargajual','sayurkeluarController@getharga');
 	Route::get('/kelolahargajual','hargajualController@index')->name('hargajual');
 	Route::get('/kelolahargajual/tambah','hargajualController@create')->name('formtambahhargajual');
 	Route::get('/kelolahargajual/{hargajual}/edit','hargajualController@edit')->name('formedithargajual');
@@ -40,5 +41,11 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::patch('/sayurmasuk/{datasayurmasuk}','sayurmasukController@update')->name('actionedittransaksimasuk');
 	Route::delete('/sayurmasuk/{datasayurmasuk}', 'sayurmasukController@destroy')->name('hapustransaksimasuk');
 	Route::get('/sayurmasuk/{datasayurmasuk}/detail', 'sayurmasukController@show')->name('detailtransaksimasuk');
+	Route::get('/sayurkeluar','sayurkeluarController@index');
+	Route::get('/sayurkeluar/tambah','sayurkeluarController@create')->name('formtambahsayurkeluar');
+	Route::post('/sayurkeluar','sayurkeluarController@store')->name('actiontambahsayurkeluar');
+	Route::get('/sayurkeluar/{datasayurkeluar}/edit','sayurkeluarController@edit')->name('edittransaksikeluar');
+	Route::patch('/sayurkeluar/{datasayurkeluar}','sayurkeluarController@update')->name('actionedittransaksikeluar');
+	Route::get('/sayurkeluar/{datasayurkeluar}/detail', 'sayurkeluarController@show')->name('detailtransaksikeluar');
 
 });

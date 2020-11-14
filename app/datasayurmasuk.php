@@ -8,5 +8,5 @@ class datasayurmasuk extends Model
 {
   protected $table = 'data_sayur_masuk';
   protected $primaryKey ='idSayurMasuk';
-  protected $fillable = ['jenis','namaPenjual','hargabeli','jumlah','totalHarga'];
+  protected $fillable = ['idHargabeli','namaPenjual','hargabeli','jumlah','totalHarga'];
 }
