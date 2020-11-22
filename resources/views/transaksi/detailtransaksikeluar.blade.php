@@ -30,7 +30,7 @@
     <div class="card-header-action">
 
     </div>
-    <a href="/sayurmasuk" class="btn btn-primary">
+    <a href="/sayurkeluar" class="btn btn-primary">
       Kembali
     </a>
   </div>

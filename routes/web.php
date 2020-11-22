@@ -14,7 +14,7 @@
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function(){
-	Route::get('/', 'HomeController@index')->name('dashboard');
+	Route::get('/', 'dashboardController@index')->name('dashboard');
 	Route::get('/logout','HomeController@logout')->name('logout');
 	Route::get('/profile','maincontroller@profile')->name('profile');
 	Route::patch('/profile', 'userController@update')->name('actionupdateprofile');
@@ -47,5 +47,6 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/sayurkeluar/{datasayurkeluar}/edit','sayurkeluarController@edit')->name('edittransaksikeluar');
 	Route::patch('/sayurkeluar/{datasayurkeluar}','sayurkeluarController@update')->name('actionedittransaksikeluar');
 	Route::get('/sayurkeluar/{datasayurkeluar}/detail', 'sayurkeluarController@show')->name('detailtransaksikeluar');
+	Route::post('/prediksi', 'dashboardController@store')->name('prediksi');
 
 });

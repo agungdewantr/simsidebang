@@ -236,7 +236,6 @@
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="{{url('/')}}">Prediksi</a></li>
-                  <li><a class="nav-link" href="#">Ecommerce Dashboard</a></li>
                 </ul>
               </li>
               @if(auth()->user()->role == 'pegawai')
@@ -291,7 +290,7 @@
               <div class="breadcrumb-item">Default Layout</div>
             </div>
           </div>
-
+          @yield('datastok')
           <div class="section-body">
             <div class="card">
               <div class="card-header">

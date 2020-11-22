@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title','Update Data Sayur Masuk')
+@section('title','Update Data Sayur Keluar')
 
 @section('namahalaman')
   <h4>Kelola Transaksi Sayur Keluar</h4>

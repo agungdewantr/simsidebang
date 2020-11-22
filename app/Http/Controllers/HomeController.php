@@ -23,7 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('/dashboard');
+        $jenissayur = \App\hargajual::all();
+        return view('/dashboard', compact('jenissayur'));
     }
 
     public function logout()
