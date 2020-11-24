@@ -135,7 +135,7 @@
 
 @section('content')
 
-<div class="row">
+<div class="table-responsive">
 <form class="form-inline mr-auto" method="post" action="/prediksi">
   @csrf
   &nbsp;&nbsp;&nbsp;
@@ -206,6 +206,7 @@
 </div>
 @endif
 <br><p class="text-primary"><b>Tabel Hasil Prediksi Terbaru</b></p>
+<div class="table-responsive">
 <table class="table table-striped">
 <thead align="center">
   <tr class="table-success">
@@ -232,4 +233,5 @@
   @endforeach
 </tbody>
 </table>
+</div>
 @endsection

@@ -23,7 +23,7 @@
     </div>
   @endif
 </div>
-
+<div class="table-responsive">
 <table class="table table-striped">
 <thead align="center">
   <tr class="table-success">
@@ -58,4 +58,5 @@
   @endforeach
 </tbody>
 </table>
+</div>
 @endsection
