@@ -55,7 +55,7 @@ class sayurkeluarController extends Controller
         'jumlah' => 'required'
       ]);
         datasayurkeluar::create($request->all());
-        return redirect('/sayurkeluar')->with('status','Data Transaksi Sayur Keluar Berhasil Ditambah');
+        return redirect('/sayurkeluar')->with('status','Data Transaksi Sayur Keluar Berhasil Ditambahkan');
     }
 
     /**
@@ -121,7 +121,7 @@ class sayurkeluarController extends Controller
           'notelpSopir' => $request->notelpSopir,
           'totalHarga' => $request->totalHarga
         ]);
-        return redirect('/sayurkeluar')->with('status','Data Transaksi Sayur Keluar Berhasil Diupdate');
+        return redirect('/sayurkeluar')->with('status','Data Transaksi Sayur Keluar Berhasil Diubah');
     }
 
     /**

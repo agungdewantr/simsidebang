@@ -42,7 +42,7 @@ class hargajualController extends Controller
         'harga' => 'required'
       ]);
       hargajual::create($request->all());
-      return redirect('/kelolahargajual')->with('status','Data Harga Sayur Berhasil Ditambah');
+      return redirect('/kelolahargajual')->with('status','Harga Sayur Berhasil Ditambahkan');
     }
 
     /**
@@ -85,7 +85,7 @@ class hargajualController extends Controller
                 'jenis' => $request->jenis,
                 'harga' => $request->harga
               ]);
-        return redirect('/kelolahargajual')->with('status','Data Harga beli Berhasil Diupdate');
+        return redirect('/kelolahargajual')->with('status','Harga beli Berhasil Diubah');
     }
 
     /**

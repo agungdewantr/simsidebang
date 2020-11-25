@@ -184,8 +184,7 @@
       <tbody>
 
       <tr><td>Jenis Sayur</td><td>:</td><td>{{ session('jenissayur') }}<br></td></tr>
-      <tr><td>Bulan Prediksi</td><td>:</td><td>{{ session('bulan') }}<br></td></tr>
-      <tr><td>Tahun Prediksi</td><td>:</td><td>{{ session('tahun') }}</td></tr>
+      <tr><td>Bulan/Tahun Prediksi</td><td>:</td><td>{{ session('bulan') }}/{{ session('tahun') }}<br></td></tr>
       <tr><td>Data Stok Bulan Pertama</td><td>:</td><td>{{ session('databulan1') }} Kg</td></tr>
       <tr><td>Data Stok Bulan Kedua</td><td>:</td><td>{{ session('databulan2') }} Kg</td></tr>
       <tr><td>Data Stok Bulan Ketiga</td><td>:</td><td>{{ session('databulan3') }} Kg</td></tr>

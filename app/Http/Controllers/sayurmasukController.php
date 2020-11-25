@@ -113,7 +113,7 @@ class sayurmasukController extends Controller
             'jumlah' => $request->jumlah,
             'totalHarga' => $request->totalHarga
           ]);
-          return redirect('/sayurmasuk')->with('status','Data Transaksi Sayur Masuk Berhasil Diupdate');
+          return redirect('/sayurmasuk')->with('status','Data Transaksi Sayur Masuk Berhasil Diubah');
     }
 
     /**
