@@ -38,7 +38,7 @@ class hargabeliController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-          'jenis' => 'required',
+          'jenis' => 'required|unique:hargabeli,jenis',
           'harga' => 'required'
         ]);
         hargabeli::create($request->all());

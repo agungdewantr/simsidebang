@@ -50,7 +50,7 @@ class sayurmasukController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-        'jenis' => 'required',
+        'jenis' => 'required|exists:hargabeli,jenis',
         'namaPenjual' => 'required',
         'jumlah' => 'required'
       ]);

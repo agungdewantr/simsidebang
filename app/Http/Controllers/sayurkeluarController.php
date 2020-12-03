@@ -19,6 +19,7 @@ class sayurkeluarController extends Controller
       $sayurkeluar = DB::table('data_sayur_keluar')
             ->join('hargajual', 'hargajual.idHargajual', '=', 'data_sayur_keluar.idHargajual')
             ->select('hargajual.jenis','data_sayur_keluar.namaPenerima','data_sayur_keluar.jumlah','data_sayur_keluar.totalHarga','data_sayur_keluar.idSayurKeluar','data_sayur_keluar.kotaTujuan')
+            ->orderby('data_sayur_keluar.created_at', 'desc')
             ->get();
       return view('transaksi.CRUDsayurkeluar-read', compact('sayurkeluar'));
     }
@@ -48,7 +49,7 @@ class sayurkeluarController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-        'jenis' => 'required',
+        'jenis' => 'required|exists:hargajual,jenis',
         'namaPenerima' => 'required',
         'namaSopir' => 'required',
         'kotaTujuan' => 'required',

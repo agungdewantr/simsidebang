@@ -12,11 +12,14 @@
   <?php $array = array('Cabe','Jagung','Kol','Tomat');  ?>
     <div class="form-group">
       <label for="jenis">Pilih Jenis Produk</label>
-      <select class="form-control" id=jenis name="jenis">
+      <select class="form-control @error('jenis') is-invalid @enderror" id=jenis name="jenis">
         @for ($i = 0; $i < count($array); $i++)
         <option value="{{$array[$i]}}">{{$array[$i]}}</option>
         @endfor
       </select>
+      @error('jenis')
+        <div class="invalid-feedback">{{$message}}</div>
+      @enderror
     </div>
   <div class="form-group">
     <label for="harga">Harga</label>

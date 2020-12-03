@@ -64,7 +64,12 @@
     </div>
     <div class="form-group">
       <label for="jumlah">Jumlah</label>
+      <div class="input-group">
       <input type="text" class="form-control @error('jumlah') is-invalid @enderror" value="{{old('jumlah')}}" autocomplete="off" id="jumlah" name="jumlah" placeholder="Masukkan Jumlah (Kg)">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Kg</div>
+      </div>
+    </div>
       @error('jumlah')
         <div class="invalid-feedback">{{$message}}</div>
       @enderror

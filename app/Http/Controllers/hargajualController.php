@@ -38,7 +38,7 @@ class hargajualController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-        'jenis' => 'required',
+        'jenis' => 'required|unique:hargajual,jenis',
         'harga' => 'required'
       ]);
       hargajual::create($request->all());

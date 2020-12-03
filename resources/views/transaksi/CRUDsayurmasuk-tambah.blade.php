@@ -15,7 +15,7 @@
         <div class="row">
           <div class="input-field col s12">
             <label for="jenis">Jenis sayur</label>
-            <input type="text" id="jenis" name="jenis" class="form-control @error('jenis') is-invalid @enderror" autocomplete="off" placeholder="Masukkan Jenis">
+            <input type="text" id="jenis" name="jenis" class="form-control @error('jenis') is-invalid @enderror" value="{{ old('jenis') }}" autocomplete="off" placeholder="Masukkan Jenis">
             @error('jenis')
               <div class="invalid-feedback">{{$message}}</div>
             @enderror
@@ -24,10 +24,10 @@
       </div>
     </div>
   </div>
-  <input type="hidden" id="idHargabeli" name="idHargabeli" value="">
+  <input type="hidden" id="idHargabeli" name="idHargabeli" value="{{ old('idHargabeli') }}">
     <div class="form-group">
       <label for="namaPenjual">Nama Penjual</label>
-      <input type="text" class="form-control @error('namaPenjual') is-invalid @enderror" id="namaPenjual" name="namaPenjual" placeholder="Masukkan Nama Penjual">
+      <input type="text" class="form-control @error('namaPenjual') is-invalid @enderror" id="namaPenjual" autocomplete="off" value="{{ old('namaPenjual') }}" name="namaPenjual" placeholder="Masukkan Nama Penjual">
       @error('namaPenjual')
         <div class="invalid-feedback">{{$message}}</div>
       @enderror
@@ -38,12 +38,17 @@
         <div class="input-group-prepend">
           <div class="input-group-text">Rp.</div>
         </div>
-        <input type="text" value="" class="form-control" id="hargabeli" name="hargabeli" placeholder="Harga satuan" readonly="">
+        <input type="text" value="{{ old('hargabeli') }}" class="form-control" id="hargabeli" name="hargabeli" placeholder="Harga satuan" readonly="">
       </div>
     </div>
     <div class="form-group">
       <label for="jumlah">Jumlah</label>
-      <input type="text" class="form-control @error('jumlah') is-invalid @enderror" autocomplete="off" id="jumlah" name="jumlah" placeholder="Masukkan Jumlah (Kg)">
+      <div class="input-group">
+      <input type="text" class="form-control @error('jumlah') is-invalid @enderror" value="{{ old('jumlah') }}" autocomplete="off" id="jumlah" name="jumlah" placeholder="Masukkan Jumlah (Kg)">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Kg</div>
+      </div>
+      </div>
       @error('jumlah')
         <div class="invalid-feedback">{{$message}}</div>
       @enderror
@@ -54,7 +59,7 @@
         <div class="input-group-prepend">
           <div class="input-group-text">Rp.</div>
         </div>
-        <input type="text" value="" class="form-control" id="totalHarga" name="totalHarga" placeholder="Total harga" readonly="">
+        <input type="text" value="{{ old('totalHarga') }}" class="form-control" id="totalHarga" name="totalHarga" placeholder="Total harga" readonly="">
       </div>
     </div>
     <button type="submit" class="btn btn-success">Simpan</button>

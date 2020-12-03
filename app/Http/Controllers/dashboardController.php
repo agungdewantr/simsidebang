@@ -99,32 +99,47 @@ class dashboardController extends Controller
      */
     public function store(Request $request)
     {
+      $tahun = $request->tahun;
       $bulan1 = $request->bulan-3;
+      if ($bulan1 < 1) {
+        $bulan1 = $bulan1+12;
+        $tahun = $tahun-1;
+      }
         $databulan1 = DB::table('data_sayur_keluar')
                       ->select(DB::raw('SUM(jumlah) as jumlahbulan1'))
                       ->where('idHargajual', '=', "$request->jenis")
                       ->whereMonth('created_at', "$bulan1")
-                      ->whereYear('created_at', "$request->tahun")
+                      ->whereYear('created_at', "$tahun")
                       ->first();
         $databulan1 = $databulan1->jumlahbulan1;
 
+        $tahun = $request->tahun;
         $bulan2 = $request->bulan-2;
+        if ($bulan2 < 1) {
+          $bulan2 = $bulan2+12;
+          $tahun = $tahun-1;
+        }
           $databulan2 = DB::table('data_sayur_keluar')
                         ->select(DB::raw('SUM(jumlah) as jumlahbulan2'))
                         ->where('idHargajual', '=', "$request->jenis")
                         ->whereMonth('created_at', "$bulan2")
-                        ->whereYear('created_at', "$request->tahun")
+                        ->whereYear('created_at', "$tahun")
                         ->first();
           $databulan2 = $databulan2->jumlahbulan2;
+
+          $tahun = $request->tahun;
           $bulan3 = $request->bulan-1;
+          if ($bulan3 < 1) {
+            $bulan3 = $bulan3+12;
+            $tahun = $tahun-1;
+          }
             $databulan3 = DB::table('data_sayur_keluar')
                           ->select(DB::raw('SUM(jumlah) as jumlahbulan3'))
                           ->where('idHargajual', '=', "$request->jenis")
                           ->whereMonth('created_at', "$bulan3")
-                          ->whereYear('created_at', "$request->tahun")
+                          ->whereYear('created_at', "$tahun")
                           ->first();
             $databulan3 = $databulan3->jumlahbulan3;
-
             $datahasilprediksi = (($databulan1*1)+($databulan2*2)+($databulan3*3))/6;
 
             if ($databulan1 != null AND $databulan2 != null AND $databulan3 != null) {
