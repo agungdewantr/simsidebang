@@ -83,7 +83,7 @@
               <li class="nav-item dropdown active">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kelola Keuangan</span></a>
                 <ul class="dropdown-menu">
-                  <li class=""><a class="nav-link" href="#">Omzet</a></li>
+                  <li class=""><a class="nav-link" href="/keuangan">Omzet</a></li>
                 </ul>
               </li>
               @endif
@@ -98,7 +98,7 @@
               <li class="nav-item dropdown active">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Kelola Keuangan</span></a>
                 <ul class="dropdown-menu">
-                  <li class=""><a class="nav-link" href="#">Omzet & Keuntungan</a></li>
+                  <li class=""><a class="nav-link" href="/keuangan">Omzet & Keuntungan</a></li>
                 </ul>
               </li>
               @endif

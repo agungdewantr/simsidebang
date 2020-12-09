@@ -22,7 +22,8 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/sayurkeluar','sayurkeluarController@index');
 	Route::get('/sayurkeluar/{datasayurkeluar}/detail', 'sayurkeluarController@show')->name('detailtransaksikeluar');
 	Route::post('/prediksi', 'dashboardController@store')->name('prediksi');
-	// Route::resource('kelolahargajual','hargajualController');
+	Route::get('/keuangan','keuanganController@keuangan')->name('keuangan');
+	Route::get('/cetakkeuanganpdf','keuanganController@cetakpdf')->name('cetakpdf');
 });
 	Route::group(['middleware' => ['auth','checkrole:pegawai']], function(){
 	Route::get('/kelolahargabeli','hargabeliController@index')->name('hargabeli');
