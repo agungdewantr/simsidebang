@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use PDF;
 use App\keuangan;
 use DB;
+use Carbon;
 use Illuminate\Http\Request;
 
 class keuanganController extends Controller
@@ -34,23 +35,29 @@ class keuanganController extends Controller
                           ->get();
                           if (count($keuanganbulanini) == 0) {
                             DB::table('keuangan')->insert(
-                                ['bulan' =>date("m"),
-                                'tahun' =>date("Y"),
+                                ['waktu' =>date("Y-m-d"),
                                 'omzet' => $omzet->omzet,
                                 'keuntungan' => $keuntungan]
                             );
                           }
       }
       $keuangan = keuangan::paginate(10);
-        return view('CRUDkeuangan-read', compact('keuangan'));
+      return view('CRUDkeuangan-read', compact('keuangan'));
     }
 
-    public function cetakpdf()
-      {
-      	$keuangan = keuangan::all();
-      	$pdf = PDF::loadview('keuanganPdf',['keuangan'=>$keuangan]);
-      	return $pdf->download('laporan-pegawai-pdf');
-      }
+    public function cetakpdf(Request $request){
+      $keuangan = DB::table('keuangan')
+                  ->where('waktu', '>=' , $request->bulan1."-31")
+                  ->where('waktu', '<=' , $request->bulan2."-31")
+                  ->get();
+                  if (count($keuangan) == 0) {
+                    $keuangan = "Tidak ada data keuangan untuk range bulan tersebut!";
+                    return view('CRUDkeuangan-read', compact('keuangan'));
+                  } else {
+                    $pdf = PDF::loadview('keuanganPdf',compact('keuangan'));
+                    return $pdf->stream();
+                  }
+        }
 
     /**
      * Show the form for creating a new resource.
