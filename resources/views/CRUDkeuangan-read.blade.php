@@ -29,29 +29,54 @@
     <button class="btn btn-primary" type="submit"><i class="fas fa-print"></i> Print</button>
   </div>
 </form>
-@if ($keuangan != "Tidak ada data keuangan untuk range bulan tersebut!") {
+<div class="" style="margin-top:5%">
+@if ($keuangan != "Tidak ada data keuangan untuk range bulan tersebut!")
 <div class="table-responsive">
 <table class="table table-striped">
 <thead align="center">
   <tr class="table-success">
     <th scope="col" align="center">No</th>
-    <th scope="col" align="center">Bulan / Tahun</th>
+    <th scope="col" align="center">Bulan</th>
+    <th scope="col" align="center">Tahun</th>
     <th scope="col" align="center">Omzett</th>
+    @if(auth()->user()->role == 'pemilik')
     <th scope="col" align="center">Keuntungan</th>
+    @endif
   </tr>
 </thead>
 
 <tbody>
   <tr>
+    <?php
+    $bulan = array(
+      '01' => 'Januari',
+      '02' => 'Februari',
+      '03' => 'Maret',
+      '04' => 'April',
+      '05' => 'Mei',
+      '06' => 'Juni',
+      '07' => 'Juli',
+      '08' => 'Agustus',
+      '09' => 'September',
+      '10' => 'Oktober',
+      '11' => 'November',
+      '12' => 'Desember',
+    )
+    ?>
     @foreach($keuangan as $k)
     <td scope="row" align="center">{{ $loop->iteration }}</th>
-    <td align="center">{{ Carbon\Carbon::parse($k->waktu)->format("m")  }}/{{ Carbon\Carbon::parse($k->waktu)->format("Y")  }}</td>
+    <td align="center">{{$bulan[Carbon\Carbon::parse($k->waktu)->format("m")]}}</td>
+    <td align="center">{{ Carbon\Carbon::parse($k->waktu)->format("Y")  }}</td>
+
     <td align="center">@currency($k->omzet)</td>
+    @if(auth()->user()->role == 'pemilik')
     <td align="center">@currency($k->keuntungan)</td>
+    @endif
   </tr>
   @endforeach
 </tbody>
 </table>
+</div>
 </div>
 @else
 <br>
