@@ -149,8 +149,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <link href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"/>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="{!! asset('assets/js/stisla.js')!!}"></script>
 
   <!-- JS Libraies -->
@@ -164,9 +162,8 @@
   <!-- Template JS File -->
   <script src="{!! asset('assets/js/scripts.js')!!}"></script>
   <script src="{!! asset('assets/js/custom.js')!!}"></script>
-  <script src="{!! asset('assets/js/page/bootstrap-modal.js') !!}"></script>
   <!-- Page Specific JS File -->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 @yield('autocomplete')
